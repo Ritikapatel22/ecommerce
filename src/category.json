@@ -1,0 +1,20 @@
+{
+    "data" : [
+        {
+            "name" : "Ring",
+            "image" : "http://surl.li/lnpxd"
+        },
+        {
+            "name" : "Earring",
+            "image" : "http://surl.li/lnpep"
+        },
+        {
+            "name" : "Necklace",
+            "image" : "http://surl.li/lnpds"
+        },
+        {
+            "name" : "Bracelate",
+            "image" : "http://surl.li/lnpfp"
+        }
+    ]
+}

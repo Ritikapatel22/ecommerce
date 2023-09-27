@@ -1,71 +1,67 @@
 {
-    "data" : [
-        {
-            "id":1,
-            "name" : "Diamond Ring",
-            "url" : "http://surl.li/gylki",
-            "description" : "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
-            "price" : 100
-        },
-        {
-            "id":2,
-            "name" : "Diamond Pendant",
-            "url" : "https://websitedemos.net/blingg-jewelry-store-04/wp-content/uploads/sites/1119/2022/08/necklace-04-b-300x375.jpg",
-            "description" : "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
-            "price" : 800
-    
-        },
-        {
-            "id":3,
-            "name" : "Pearl Earrings with Diamond",
-            "url" : "http://surl.li/gyllg",
-            "description" : "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
-            "price" : 300
-    
-        },
-        {
-            "id":4,
-            "name" : "Ruby Necklace",
-            "url" : "https://websitedemos.net/blingg-jewelry-store-04/wp-content/uploads/sites/1119/2022/08/bracelet-03-a.jpg",
-            "description" : "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
-            "price" : 300
-    
-        },
-        {
-            "id":5,
-            "name" : "Genelia Diamond Necklace",
-            "url" : "https://websitedemos.net/blingg-jewelry-store-04/wp-content/uploads/sites/1119/2022/08/necklace-05-a.jpg",
-            "description" : "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
-            "price" : 600
-    
-        },
-        {
-            "id":6,
-            "name" : "Topaz Ring with Diamond",
-            "url" : "https://websitedemos.net/blingg-jewelry-store-04/wp-content/uploads/sites/1119/2022/08/ring-01-a-400x500.jpg",
-            "description" : "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
-            "price" : 250
-        },
-        {
-            "id":7,
-            "name" : "Gold Chain",
-            "url" : "https://websitedemos.net/blingg-jewelry-store-04/wp-content/uploads/sites/1119/2022/08/necklace-06-b-300x375.jpg",
-            "description" : "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
-            "price" : 450
-        },
-        {
-            "id":8,
-            "name" : "Perals Earring",
-            "url" : "https://websitedemos.net/blingg-jewelry-store-04/wp-content/uploads/sites/1119/2022/08/bracelet-04-a-400x500.jpg",
-            "description" : "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
-            "price" : 400
-        },
-        {
-            "id":9,
-            "name" : "Gold Earring",
-            "url" : "https://websitedemos.net/blingg-jewelry-store-04/wp-content/uploads/sites/1119/2022/08/earrings-02-a-400x500.jpg",
-            "description" : "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
-            "price" : 100
-        }
-    ]
+  "data": [
+    {
+      "id": 1,
+      "name": "Diamond Ring",
+      "key": "Ring",
+      "url": "http://surl.li/gylki",
+      "description": "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
+      "price": 100
+    },
+    {
+      "id": 3,
+      "name": "Pearl Earrings with Diamond",
+      "key": "Earring",
+      "url": "http://surl.li/gyllg",
+      "description": "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
+      "price": 300
+    },
+    {
+      "id": 4,
+      "name": "Ruby Necklace",
+      "key": "Necklace",
+      "url": "https://websitedemos.net/blingg-jewelry-store-04/wp-content/uploads/sites/1119/2022/08/bracelet-03-a.jpg",
+      "description": "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
+      "price": 300
+    },
+    {
+      "id": 5,
+      "name": "Genelia Diamond Necklace",
+      "url": "https://websitedemos.net/blingg-jewelry-store-04/wp-content/uploads/sites/1119/2022/08/necklace-05-a.jpg",
+      "description": "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
+      "price": 600
+    },
+    {
+      "id": 6,
+      "name": "Topaz Ring with Diamond",
+      "key": "Ring",
+      "url": "https://websitedemos.net/blingg-jewelry-store-04/wp-content/uploads/sites/1119/2022/08/ring-01-a-400x500.jpg",
+      "description": "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
+      "price": 250
+    },
+    {
+      "id": 7,
+      "name": "Gold Chain",
+      "key": "Necklace",
+      "url": "https://websitedemos.net/blingg-jewelry-store-04/wp-content/uploads/sites/1119/2022/08/necklace-06-b-300x375.jpg",
+      "description": "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
+      "price": 450
+    },
+    {
+      "id": 8,
+      "name": "Perals Earring",
+      "key": "Earring",
+      "url": "https://websitedemos.net/blingg-jewelry-store-04/wp-content/uploads/sites/1119/2022/08/bracelet-04-a-400x500.jpg",
+      "description": "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
+      "price": 400
+    },
+    {
+      "id": 9,
+      "name": "Gold Earring",
+      "key": "Earring",
+      "url": "https://websitedemos.net/blingg-jewelry-store-04/wp-content/uploads/sites/1119/2022/08/earrings-02-a-400x500.jpg",
+      "description": "Certified by SGL. Beautifully crafted jewellery. Style - Casual Ring, Technique - C3. Buy jewellery online or in-store. Lifetime Exchange.",
+      "price": 100
+    }
+  ]
 }

@@ -6,6 +6,12 @@ import Data from "../data.json";
 import { BiDollar } from "react-icons/bi";
 import Header from "./header";
 import { useNavigate } from "react-router-dom";
+import Category from "./category";
+import {
+  RiInstagramFill,
+  RiFacebookCircleFill,
+  RiTwitterFill,
+} from "react-icons/ri";
 
 function Content() {
   const scrollToDiv = (ref) => window.scrollTo(0, ref.current.offsetTop);
@@ -57,11 +63,11 @@ function Content() {
           return (
             <div
               className="w-[300px]"
-              onClick={() => navigate(`/product/${val.id}`, { state: val })}
+              onClick={() =>
+                navigate(`/product/${val.key}/${val.id}`, { state: val })
+              }
             >
-              <div
-                className="overflow-hidden h-[42vh]"
-              >
+              <div className="overflow-hidden h-[42vh]">
                 <img
                   src={val.url}
                   alt={val.name}
@@ -79,7 +85,8 @@ function Content() {
           );
         })}
       </div>
-      <div className="grid gap-4 grid-cols-2 m-[10%]">
+      <Category />
+      {/* <div className="grid gap-4 grid-cols-2 m-[10%]">
         <div className="w-1/2">
           <p className="text-sm">UNIQUE PIECES</p>
           <p className="text-6xl">BE ALWAYS ON TREND</p>
@@ -105,6 +112,40 @@ function Content() {
             alt="ring"
             className="absolute pt-[118px] pr-[20%] right-[40%]"
           />
+        </div>
+      </div> */}
+      <div className="bottom-0 bg-[#f0e0c6] flex justify-center items-center gap-96 py-9">
+        <div className="w-1/5">
+          <span className="text-xl font-semibold">About us</span>
+          <p className="mt-6 font-normal">
+            Welcome to our exquisite jewelry website, where elegance meets
+            craftsmanship. We take pride in curating a stunning collection of
+            timeless and contemporary pieces, meticulously designed to adorn
+            your unique style.we invite you to explore our world of precious
+            gems and metals, and find the perfect jewelry piece that reflects
+            your individuality.
+          </p>
+        </div>
+        <div className="">
+          <p className="text-xl font-semibold m-[10px]">
+            Sign up for the more update
+          </p>
+          <div className="flex flex-col items-center">
+            {" "}
+            {/* Use flex and items-center for vertical and horizontal centering */}
+            <input placeholder="Email" className="p-2 my-2" />
+            <button className="bg-[#B97B18] py-2 px-4 text-white">
+              Subscribe
+            </button>
+          </div>
+        </div>
+        <div className="">
+          <span className="text-xl font-semibold">Contact</span>
+          <div className="flex gap-3">
+            <RiInstagramFill style={{ fontSize: "24px" }} />{" "}
+            <RiFacebookCircleFill style={{ fontSize: "24px" }} />
+            <RiTwitterFill style={{ fontSize: "24px" }} />
+          </div>
         </div>
       </div>
     </>

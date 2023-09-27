@@ -37,8 +37,8 @@ function Product() {
       <div className="grid gap-2 grid-cols-2 px-[10%] py-[2%]">
         <div className="">
           <img
-            src={location.state.url}
-            alt={location.state.name}
+            src={location.state?.url}
+            alt={location.state?.name}
             className="h-3/4 w-[95%]"
           />
         </div>
