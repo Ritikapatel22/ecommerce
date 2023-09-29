@@ -1,80 +1,132 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import main from "../assest/hero.jpeg";
-import model from "../assest/model.jpeg";
-import ring from "../assest/ring.jpeg";
 import Data from "../data.json";
 import { BiDollar } from "react-icons/bi";
-import Header from "./header";
-import { useNavigate } from "react-router-dom";
+import { MdShoppingCart, MdFavoriteBorder } from "react-icons/md";
+import { useLocation, useNavigate } from "react-router-dom";
 import Category from "./category";
-import {
-  RiInstagramFill,
-  RiFacebookCircleFill,
-  RiTwitterFill,
-} from "react-icons/ri";
+import Layout from "./layout";
+import { CartState } from "../Context/CartProvider";
 
 function Content() {
   const scrollToDiv = (ref) => window.scrollTo(0, ref.current.offsetTop);
   const compRef = useRef(null);
   const isScroll = () => scrollToDiv(compRef);
+  const cateRef = useRef(null);
+  const isScrollCategory = () => scrollToDiv(cateRef);
   const navigate = useNavigate();
+  const [hoveredImage, setHoveredImage] = useState(null);
+
+  const handleHover = (index) => {
+    setHoveredImage(index);
+  };
+
+  const handleHoverOut = () => {
+    setHoveredImage(null);
+  };
+
+  const [count, setCount] = useState(1);
+  const { setCart, cart } = CartState();
+
+  const handleCart = (data) => {
+    data.event.stopPropagation();
+    const existingProductIndex = cart.findIndex(
+      (item) => item.detail.id === data.detail.id
+    );
+    if (existingProductIndex !== -1) {
+      const updatedCart = [...cart];
+      updatedCart[existingProductIndex] = {
+        ...updatedCart[existingProductIndex],
+        numbers: updatedCart[existingProductIndex].numbers + count,
+      };
+      setCart(updatedCart);
+    } else {
+      const updatedCart = [...cart, { ...data, numbers: data.numbers }];
+      setCart(updatedCart);
+    }
+  };
   return (
     <>
-      <Header />
-      <div className="w-full">
-        <img
-          className="top-0 left-0 w-full h-[75vh] object-cover"
-          src={main}
-          alt="/"
-        />
-        <div className="absolute top-1/2 left-[35%] -translate-x-1/2 -translate-y-1/2 text-[#303030]">
-          <p className="text-sm">New collection</p>
-          <p className="font-bold text-7xl pb-4 w-[60%]">
-            THE NEW RING SENSATION
-          </p>
-          <p className="text-md w-[50%]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-            tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-          </p>
-          <button
-            className="border-2 border-[#303030] py-2 px-8 mt-8 hover:bg-[#303030] hover:text-[#FFFFFF]"
-            onClick={isScroll}
-          >
-            Shop now
-          </button>
+      <Layout>
+        <div className="w-full relative">
+          <img
+            className="top-0 left-0 w-full h-[75vh] object-cover"
+            src={main}
+            alt="/"
+          />
+          <div className="absolute top-1/2 left-[32%] transform -translate-x-1/2 -translate-y-1/2 text-[#303030] text-left p-4 md:p-8">
+            <p className="text-xs md:text-sm">New collection</p>
+            <p className="font-bold text-3xl md:text-7xl pb-2 md:pb-4 w-full md:w-[60%]">
+              THE NEW RING SENSATION
+            </p>
+            <p className="text-sm md:text-md w-full md:w-[50%]">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut el it
+              tellus, luctus nec ullamcorper matt is, pulvinar dapibus leo.
+            </p>
+            <button
+              className="border-2 border-[#303030] py-2 px-6 md:py-3 md:px-8 mt-4 md:mt-8 hover:bg-[#303030] hover:text-[#FFFFFF]"
+              onClick={isScroll}
+            >
+              Shop now
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="flex items-center justify-center p-10">
-        <div ref={compRef}>
-          <p className="text-sm text-center text-[#62615c] font-semibold">
-            POPULAR PRODUCTS
-          </p>
-          <p
-            className="text-4xl font-bold relative after:content-[' '] 
+        <div className="flex items-center justify-center p-10">
+          <div ref={compRef}>
+            <p className="text-sm text-center text-[#62615c] font-semibold">
+              POPULAR PRODUCTS
+            </p>
+            <p
+              className="text-4xl font-bold relative after:content-[' '] 
           after:absolute after:w-[90%]] after:h-[1px] after:bg-[#a86e3b] 
           after:m-auto after:left-0 after:right-0 after:bottom-0 after:mx-[10px] after:top-[100%] after:my-auto"
-          >
-            TRENDING NOW
-          </p>
+            >
+              TRENDING NOW
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="grid gap-4 grid-cols-4 justify-items-center px-[20px] mb-[20px]">
-        {Data?.data.map((val) => {
-          return (
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center px-4 md:px-20 mb-4 md:mb-20">
+          {Data?.data.map((val, index) => (
             <div
-              className="w-[300px]"
+              className="w-full md:w-[calc(50% - 20px)] lg:w-[calc(25% - 20px)]"
               onClick={() =>
                 navigate(`/product/${val.key}/${val.id}`, { state: val })
               }
+              key={val.id}
             >
-              <div className="overflow-hidden h-[42vh]">
+              <div
+                className="overflow-hidden h-[50vh] relative"
+                onMouseEnter={() => handleHover(index)}
+                onMouseLeave={handleHoverOut}
+              >
                 <img
                   src={val.url}
                   alt={val.name}
-                  className="h-[42vh] w-[300px] filter"
+                  className={`h-full w-full object-cover transition-transform ${
+                    hoveredImage === index ? "filter" : ""
+                  }`}
                 />
+                {hoveredImage === index && ( // Render icons when image is hovered
+                  <div className="absolute top-0 right-0 p-2">
+                    <div className="flex items-center justify-center bg-white rounded-full p-1 shadow-md">
+                      <MdFavoriteBorder size={20} />
+                    </div>
+                    <div
+                      className="mt-2 flex items-center justify-center bg-white rounded-full p-1 shadow-md"
+                      onClick={(event) =>
+                        handleCart({
+                          detail: val,
+                          numbers: count,
+                          event: event,
+                        })
+                      }
+                    >
+                      <MdShoppingCart size={20} />
+                    </div>
+                  </div>
+                )}
               </div>
-              <p className="text-center text-lg text-[#303030] font-semibold mt-[5px]">
+              <p className="text-center text-lg text-[#303030] font-semibold mt-2 md:mt-5">
                 {val.name}
               </p>
               <div className="flex justify-center">
@@ -82,72 +134,10 @@ function Content() {
                 <p className="-mt-[4px]">{val.price}</p>
               </div>
             </div>
-          );
-        })}
-      </div>
-      <Category />
-      {/* <div className="grid gap-4 grid-cols-2 m-[10%]">
-        <div className="w-1/2">
-          <p className="text-sm">UNIQUE PIECES</p>
-          <p className="text-6xl">BE ALWAYS ON TREND</p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-            tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-          </p>
-          <button
-            className="border-2 border-[#303030] py-2 px-8 mt-8 hover:bg-[#303030] hover:text-[#FFFFFF]"
-            onClick={isScroll}
-          >
-            Shop now
-          </button>
+          ))}
         </div>
-        <div className="relative">
-          <img
-            src={model}
-            alt="model"
-            className="absolute -z-1 right-0 top-0"
-          />
-          <img
-            src={ring}
-            alt="ring"
-            className="absolute pt-[118px] pr-[20%] right-[40%]"
-          />
-        </div>
-      </div> */}
-      <div className="bottom-0 bg-[#f0e0c6] flex justify-center items-center gap-96 py-9">
-        <div className="w-1/5">
-          <span className="text-xl font-semibold">About us</span>
-          <p className="mt-6 font-normal">
-            Welcome to our exquisite jewelry website, where elegance meets
-            craftsmanship. We take pride in curating a stunning collection of
-            timeless and contemporary pieces, meticulously designed to adorn
-            your unique style.we invite you to explore our world of precious
-            gems and metals, and find the perfect jewelry piece that reflects
-            your individuality.
-          </p>
-        </div>
-        <div className="">
-          <p className="text-xl font-semibold m-[10px]">
-            Sign up for the more update
-          </p>
-          <div className="flex flex-col items-center">
-            {" "}
-            {/* Use flex and items-center for vertical and horizontal centering */}
-            <input placeholder="Email" className="p-2 my-2" />
-            <button className="bg-[#B97B18] py-2 px-4 text-white">
-              Subscribe
-            </button>
-          </div>
-        </div>
-        <div className="">
-          <span className="text-xl font-semibold">Contact</span>
-          <div className="flex gap-3">
-            <RiInstagramFill style={{ fontSize: "24px" }} />{" "}
-            <RiFacebookCircleFill style={{ fontSize: "24px" }} />
-            <RiTwitterFill style={{ fontSize: "24px" }} />
-          </div>
-        </div>
-      </div>
+        <Category cateRef={cateRef} />
+      </Layout>
     </>
   );
 }

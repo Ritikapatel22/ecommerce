@@ -2,11 +2,11 @@ import React from "react";
 import Data from "../category.json";
 import { useNavigate } from "react-router-dom";
 
-function Category() {
+function Category({ cateRef }) {
   const navigate = useNavigate();
   return (
     <>
-      <div className="flex items-center justify-center p-10">
+      <div className="flex items-center justify-center p-10" ref={cateRef}>
         <div>
           <p className="text-sm text-center text-[#62615c] font-semibold">
             POPULAR BY
@@ -20,18 +20,18 @@ function Category() {
           </p>
         </div>
       </div>
-      <div className="grid gap-4 grid-cols-4 justify-items-center px-[20px] mb-[20px]">
+      <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center px-4 md:px-20 mb-4 md:mb-20">
         {Data?.data.map((val) => {
           return (
             <div
-              className="w-[300px]"
+              className="w-full md:w-[calc(50% - 20px)] lg:w-[calc(25% - 20px)]"
               onClick={() => navigate(`/product/${val.name}`)}
             >
-              <div className="overflow-hidden h-[42vh]">
+              <div className="overflow-hidden h-[50vh] relative">
                 <img
                   src={val.image}
                   alt={val.name}
-                  className="h-[42vh] w-[300px] filter"
+                  className="h-full w-full object-cover filter"
                 />
               </div>
               <p className="text-center text-lg text-[#303030] font-semibold mt-[5px]">
