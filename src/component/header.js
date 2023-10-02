@@ -55,7 +55,7 @@ function Header({ isScrollCategory }) {
           <div className="flex items-center">
             {isSearch ? (
               <div class="relative">
-                <div class="relative flex items-center">
+                <div class="relative flex items-center mr-4">
                   <input
                     type="text"
                     class="w-full px-4 py-1 pr-10 border rounded-lg focus:outline-none focus:ring focus:border-[#B97B18]"
