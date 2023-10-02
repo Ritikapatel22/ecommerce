@@ -2,11 +2,11 @@ import React from "react";
 import Data from "../category.json";
 import { useNavigate } from "react-router-dom";
 
-function Category({ cateRef }) {
+function Category({ }) {
   const navigate = useNavigate();
   return (
     <>
-      <div className="flex items-center justify-center p-10" ref={cateRef}>
+      <div className="flex items-center justify-center p-10" >
         <div>
           <p className="text-sm text-center text-[#62615c] font-semibold">
             POPULAR BY
@@ -25,7 +25,7 @@ function Category({ cateRef }) {
           return (
             <div
               className="w-full md:w-[calc(50% - 20px)] lg:w-[calc(25% - 20px)]"
-              onClick={() => navigate(`/product/${val.name}`)}
+              onClick={() => navigate(`/product/${val.name.toLowerCase()}`)}
             >
               <div className="overflow-hidden h-[50vh] relative">
                 <img

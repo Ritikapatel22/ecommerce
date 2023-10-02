@@ -44,3 +44,20 @@
 .filter:hover {
   transform: scale(1.5);
 }
+.export {
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+}
+
+@media (max-width: 437px) {
+  .export {
+    right: 0;
+    top: 70px;
+  }
+}
+.submenu {
+  display: none;
+}
+
+.open {
+  display: block;
+}

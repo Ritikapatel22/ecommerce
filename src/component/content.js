@@ -3,7 +3,7 @@ import main from "../assest/hero.jpeg";
 import Data from "../data.json";
 import { BiDollar } from "react-icons/bi";
 import { MdShoppingCart, MdFavoriteBorder } from "react-icons/md";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Category from "./category";
 import Layout from "./layout";
 import { CartState } from "../Context/CartProvider";
@@ -12,8 +12,6 @@ function Content() {
   const scrollToDiv = (ref) => window.scrollTo(0, ref.current.offsetTop);
   const compRef = useRef(null);
   const isScroll = () => scrollToDiv(compRef);
-  const cateRef = useRef(null);
-  const isScrollCategory = () => scrollToDiv(cateRef);
   const navigate = useNavigate();
   const [hoveredImage, setHoveredImage] = useState(null);
 
@@ -90,7 +88,9 @@ function Content() {
             <div
               className="w-full md:w-[calc(50% - 20px)] lg:w-[calc(25% - 20px)]"
               onClick={() =>
-                navigate(`/product/${val.key}/${val.id}`, { state: val })
+                navigate(`/product/${val.key.toLowerCase()}/${val.id}`, {
+                  state: val,
+                })
               }
               key={val.id}
             >
@@ -136,7 +136,7 @@ function Content() {
             </div>
           ))}
         </div>
-        <Category cateRef={cateRef} />
+        <Category />
       </Layout>
     </>
   );

@@ -45,7 +45,7 @@ function CategoryProduct() {
               {Data[`${window.location.href.split("/")[4].toLowerCase()}`]?.map(
                 (val, index) => {
                   return (
-                    <div className="w-full md:w-[300px]">
+                    <div className="w-full md:w-[300px] relative">
                       <div
                         className="overflow-hidden h-[42vh]"
                         onMouseEnter={() => handleHover(index)}
@@ -58,7 +58,7 @@ function CategoryProduct() {
                             hoveredImage === index ? "filter" : ""
                           }`}
                         />
-                        {hoveredImage === index && ( // Render icons when image is hovered
+                        {hoveredImage === index && (
                           <div className="absolute top-0 right-0 p-2">
                             <div className="flex items-center justify-center bg-white rounded-full p-1 shadow-md">
                               <MdFavoriteBorder size={20} />

@@ -37,9 +37,15 @@ function Footer() {
           <div className="md:mt-0">
             <span className="text-xl font-semibold">Contact</span>
             <div className="flex items-center md:items-center gap-3 mt-4 md:mt-0">
-              <RiInstagramFill style={{ fontSize: "24px" }} />
-              <RiFacebookCircleFill style={{ fontSize: "24px" }} />
-              <RiTwitterFill style={{ fontSize: "24px" }} />
+              <a href="https://www.instagram.com" target="_blank">
+                <RiInstagramFill style={{ fontSize: "24px" }} />
+              </a>
+              <a href="https://www.facebook.com" target="_blank">
+                <RiFacebookCircleFill style={{ fontSize: "24px" }} />
+              </a>
+              <a href="https://twitter.com" target="_blank">
+                <RiTwitterFill style={{ fontSize: "24px" }} />
+              </a>
             </div>
           </div>
         </div>

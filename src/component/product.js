@@ -11,6 +11,7 @@ function Product() {
   const location = useLocation();
   const [count, setCount] = useState(1);
   const { setCart, cart } = CartState();
+  const [isExpand, setIsExpand] = useState(false);
 
   const handleCart = (data) => {
     const existingProductIndex = cart.findIndex(
@@ -54,18 +55,21 @@ function Product() {
               </p>
               <span className="-mt-[4px] ml-1">& Free Shipping</span>
             </div>
-            <p className="text-[#777777] pt-4 md:pt-8">
-              Ut non elit lorem. Duis pharetra odio vitae nisl luctus, at
-              volutpat arcu lacinia. Aliquam id ullamcorper augue. Fusce feugiat
-              nibh et nisl mollis hendrerit. Mauris sit amet nulla in augue
-              laoreet lobortis ac eleifend nunc. Quisque eleifend sollicitudin
-              nulla, et consequat eros. Donec pellentesque dapibus massa ut
-              cursus.
-            </p>
-            <p className="text-[#777777] pt-4 md:pt-8">
-              Quisque ut augue eu dui semper eleifend. Aliquam imperdiet nisl
-              libero, vitae vulputate lectus fringilla eget.
-            </p>
+            {isExpand ? (
+              <p className="text-[#777777] pt-4 md:pt-8">
+                {location.state.description}
+              </p>
+            ) : (
+              <p className="text-[#777777] pt-4 md:pt-8">
+                {location.state.description.slice(0, 100)}{" "}
+              </p>
+            )}
+            <button
+              className="text-green-600 underline"
+              onClick={() => setIsExpand(!isExpand)}
+            >
+              {isExpand ? "Read Less" : "Read More"}
+            </button>
             <div className="flex pt-6 md:pt-10">
               <div
                 className="border-[1px] border-[#e8e8e8] px-4 py-1"
